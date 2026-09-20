@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse products on CampusMarket.">
+    <title>CampusMarket | Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container nav-wrapper">
+            <a class="logo" href="index.html">Campus<span>Market</span></a>
+            <nav aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a class="active" href="catalog.html">Catalog</a>
+                <a href="register.html">Register</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container page-content">
+        <section class="page-heading">
+            <p class="eyebrow">PRODUCT CATALOG</p>
+            <h1>Find what you need.</h1>
+            <p>Search or filter the catalog, then choose a quantity to calculate your total.</p>
+        </section>
+
+        <section class="catalog-controls" aria-label="Catalog filters">
+            <div class="form-group">
+                <label for="searchInput">Search products</label>
+                <input type="search" id="searchInput" placeholder="e.g. notebook, laptop..." autocomplete="off">
+            </div>
+
+            <div class="form-group">
+                <label for="categoryFilter">Category</label>
+                <select id="categoryFilter">
+                    <option value="all">All categories</option>
+                    <option value="stationery">Stationery</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="campus">Campus Life</option>
+                </select>
+            </div>
+        </section>
+
+        <p id="filterMessage" class="filter-message" aria-live="polite"></p>
+
+        <section class="product-grid" id="productList" aria-label="Products">
+            <article class="product-card" data-name="campus notebook" data-category="stationery">
+                <div class="product-icon">📓</div>
+                <div class="product-body">
+                    <span class="category-label">Stationery</span>
+                    <h2>Campus Notebook</h2>
+                    <p>A durable notebook for lectures, assignments and revision.</p>
+                    <p class="price">KSh 350</p>
+                    <label for="quantity-notebook">Quantity</label>
+                    <input class="quantity-input" id="quantity-notebook" type="number" min="0" value="1">
+                    <p class="running-total">Total: <strong class="product-total" data-price="350">KSh 350</strong></p>
+                </div>
+            </article>
+
+            <article class="product-card" data-name="usb flash drive" data-category="electronics">
+                <div class="product-icon">💾</div>
+                <div class="product-body">
+                    <span class="category-label">Electronics</span>
+                    <h2>USB Flash Drive</h2>
+                    <p>Portable storage for assignments, notes and project files.</p>
+                    <p class="price">KSh 900</p>
+                    <label for="quantity-usb">Quantity</label>
+                    <input class="quantity-input" id="quantity-usb" type="number" min="0" value="1">
+                    <p class="running-total">Total: <strong class="product-total" data-price="900">KSh 900</strong></p>
+                </div>
+            </article>
+
+            <article class="product-card" data-name="wireless mouse" data-category="electronics">
+                <div class="product-icon">🖱️</div>
+                <div class="product-body">
+                    <span class="category-label">Electronics</span>
+                    <h2>Wireless Mouse</h2>
+                    <p>A compact wireless mouse for laptops and desktop computers.</p>
+                    <p class="price">KSh 1,200</p>
+                    <label for="quantity-mouse">Quantity</label>
+                    <input class="quantity-input" id="quantity-mouse" type="number" min="0" value="1">
+                    <p class="running-total">Total: <strong class="product-total" data-price="1200">KSh 1,200</strong></p>
+                </div>
+            </article>
+
+            <article class="product-card" data-name="campus backpack" data-category="campus">
+                <div class="product-icon">🎒</div>
+                <div class="product-body">
+                    <span class="category-label">Campus Life</span>
+                    <h2>Campus Backpack</h2>
+                    <p>A practical backpack with enough space for daily essentials.</p>
+                    <p class="price">KSh 2,500</p>
+                    <label for="quantity-backpack">Quantity</label>
+                    <input class="quantity-input" id="quantity-backpack" type="number" min="0" value="1">
+                    <p class="running-total">Total: <strong class="product-total" data-price="2500">KSh 2,500</strong></p>
+                </div>
+            </article>
+
+            <article class="product-card" data-name="scientific calculator" data-category="electronics">
+                <div class="product-icon">🧮</div>
+                <div class="product-body">
+                    <span class="category-label">Electronics</span>
+                    <h2>Scientific Calculator</h2>
+                    <p>A useful calculator for mathematics, science and engineering work.</p>
+                    <p class="price">KSh 1,800</p>
+                    <label for="quantity-calculator">Quantity</label>
+                    <input class="quantity-input" id="quantity-calculator" type="number" min="0" value="1">
+                    <p class="running-total">Total: <strong class="product-total" data-price="1800">KSh 1,800</strong></p>
+                </div>
+            </article>
+
+            <article class="product-card" data-name="water bottle" data-category="campus">
+                <div class="product-icon">🥤</div>
+                <div class="product-body">
+                    <span class="category-label">Campus Life</span>
+                    <h2>Water Bottle</h2>
+                    <p>A reusable bottle for staying hydrated throughout the day.</p>
+                    <p class="price">KSh 700</p>
+                    <label for="quantity-bottle">Quantity</label>
+                    <input class="quantity-input" id="quantity-bottle" type="number" min="0" value="1">
+                    <p class="running-total">Total: <strong class="product-total" data-price="700">KSh 700</strong></p>
+                </div>
+            </article>
+        </section>
+
+        <p id="noResults" class="no-results" hidden>No products match your search or category.</p>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 CampusMarket. Built for the university community.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
