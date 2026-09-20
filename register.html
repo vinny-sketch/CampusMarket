@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create a CampusMarket account.">
+    <title>CampusMarket | Register</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container nav-wrapper">
+            <a class="logo" href="index.html">Campus<span>Market</span></a>
+            <nav aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="catalog.html">Catalog</a>
+                <a class="active" href="register.html">Register</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container page-content">
+        <section class="form-container">
+            <div class="page-heading">
+                <p class="eyebrow">JOIN CAMPUSMARKET</p>
+                <h1>Create your account.</h1>
+                <p>Register to prepare your account for future marketplace features.</p>
+            </div>
+
+            <form id="registrationForm" novalidate>
+                <div class="form-group">
+                    <label for="fullName">Full name <span aria-hidden="true">*</span></label>
+                    <input type="text" id="fullName" name="fullName" autocomplete="name">
+                    <small class="error-message" id="nameError"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email address <span aria-hidden="true">*</span></label>
+                    <input type="email" id="email" name="email" autocomplete="email" placeholder="student@example.com">
+                    <small class="error-message" id="emailError"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password <span aria-hidden="true">*</span></label>
+                    <div class="password-row">
+                        <input type="password" id="password" name="password" autocomplete="new-password">
+                        <button type="button" class="secondary-button" id="togglePassword">Show</button>
+                    </div>
+                    <small class="error-message" id="passwordError"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm password <span aria-hidden="true">*</span></label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" autocomplete="new-password">
+                    <small class="error-message" id="confirmPasswordError"></small>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="terms" name="terms">
+                    <label for="terms">I agree to the CampusMarket terms.</label>
+                </div>
+                <small class="error-message" id="termsError"></small>
+
+                <button class="button full-width" type="submit">Create Account</button>
+
+                <p id="formMessage" class="form-message" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 CampusMarket. Built for the university community.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
