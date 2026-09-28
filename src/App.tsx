@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   ArrowLeft,
   ArrowRight,
@@ -150,6 +150,9 @@ function App() {
   const [formQuantity, setFormQuantity] = useState('');
   const [formErrors, setFormErrors] = useState<FormErrors>({});
   const [submitted, setSubmitted] = useState(false);
+
+  const registrationFormRef = useRef<HTMLFormElement | null>(null);
+  const successMessageRef = useRef<HTMLDivElement | null>(null);
 
   const [cartItems, setCartItems] = useState<CartItem[]>(() => {
     try {
@@ -419,23 +422,43 @@ function App() {
     return errors;
   }
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
+  useEffect(() => {
+    const form = registrationFormRef.current;
 
-    const errors = validateForm();
-    setFormErrors(errors);
-    setSubmitted(false);
-
-    if (Object.keys(errors).length > 0) {
+    if (!form) {
       return;
     }
 
-    setSubmitted(true);
+    const handleRegistrationSubmit = (event: Event) => {
+      event.preventDefault();
 
-    window.setTimeout(() => {
+      const errors = validateForm();
+      setFormErrors(errors);
       setSubmitted(false);
-    }, 1800);
-  }
+
+      if (Object.keys(errors).length > 0) {
+        return;
+      }
+
+      setSubmitted(true);
+
+      window.requestAnimationFrame(() => {
+        successMessageRef.current?.classList.remove('success-animation');
+        void successMessageRef.current?.offsetWidth;
+        successMessageRef.current?.classList.add('success-animation');
+      });
+
+      window.setTimeout(() => {
+        setSubmitted(false);
+      }, 1800);
+    };
+
+    form.addEventListener('submit', handleRegistrationSubmit);
+
+    return () => {
+      form.removeEventListener('submit', handleRegistrationSubmit);
+    };
+  }, [name, email, formQuantity]);
 
   return (
     <div className="app-shell">
@@ -914,7 +937,6 @@ function App() {
 
           <form
             className="registration-form"
-            onSubmit={handleSubmit}
             noValidate
           >
             <div className="form-field">
