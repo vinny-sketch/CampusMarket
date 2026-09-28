@@ -1,0 +1,6 @@
+{
+  "name": "CampusMarket",
+  "description": "CS 2314 university marketplace web application for browsing student products, active offers, calculating order totals, and student registration.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
